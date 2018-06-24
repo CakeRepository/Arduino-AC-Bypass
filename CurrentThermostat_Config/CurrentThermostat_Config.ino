@@ -1,9 +1,9 @@
-// include LCD library
+// include LCD library Needed for display
 #include <LiquidCrystal.h>
-// select the pins used on the LCD panel
+// select the pins used on the LCD panel needed for display
 LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 
-// define some values used by the panel and buttons
+// define some values used by the panel and buttons Probably not needed
 int lcd_key     = 0;
 int adc_key_in  = 0;
 #define btnRIGHT  0
@@ -22,13 +22,15 @@ void setup() {
 
 void loop() {
   
-  int cool = 0;
-  for(int i = 0; i < 10; i++){
-  int sensorValue = analogRead(A8);
-  double voltage = map(sensorValue, 0, 1023,0,2500);
-  Serial.println(voltage);
-  if(voltage > 2000.00){
-  cool++;
+  int cool = 0;// sets cool needed to No
+  for(int i = 0; i < 10; i++)//loops to test connection over 10 second period
+  {
+  int sensorValue = analogRead(A8);//gets data from pin 8 which is AC detection
+  double voltage = map(sensorValue, 0, 1023,0,2500);//Converts to 24V from 5V 1000 vs 25000
+  Serial.println(voltage); //write volatge to serial 
+  if(voltage > 2000.00)//checks if voltage is above 20V
+  {
+  cool++;//adds to Cool Detection needed
   }
   delay(1000);
   }
