@@ -11,12 +11,12 @@ void loop() {
   int cool = 0;// sets cool needed to No
 
 
-  for(int i = 0; i < 30; i++)//loops to test connection over 10 second period
+  for(int i = 0; i < 30; i++)//loops to test connection over 30 second period
   {
   int sensorValue = analogRead(A8);//gets data from pin 8 which is AC detection
   double voltage = map(sensorValue, 0, 1023,0,2500);//Converts to 24V from 5V 1000 vs 25000
    loopTotal++;//adds 1 to loopTotal
-  Serial.println(loopTotal);
+  Serial.println(loopTotal);//Debug info
   if(voltage > 2000.00)//checks if voltage is above 20V
   {
   cool++;//adds to Cool Detection needed
@@ -34,7 +34,7 @@ void loop() {
   }
 
   if(loopTotal > 60){
-    loopTotal = 0;
+    loopTotal = 0;//sets default value of Loop again
   Serial.println("delay");
   delay(600000);
   Serial.println("Awake");
