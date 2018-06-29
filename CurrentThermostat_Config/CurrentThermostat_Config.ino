@@ -36,6 +36,7 @@ void loop() {
   if(loopTotal > 60){
     loopTotal = 0;//sets default value of Loop again
   Serial.println("delay");
+  digitalWrite(36, HIGH);//set Relay 2 to Off
   delay(600000);
   Serial.println("Awake");
   }
