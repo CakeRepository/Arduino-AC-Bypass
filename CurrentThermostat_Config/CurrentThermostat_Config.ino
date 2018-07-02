@@ -97,7 +97,7 @@ Serial.println("end check loop");
     lcd.print("Defrosting");
     digitalWrite(36, LOW);//set Relay 2 to Off
     loopTotal = 0;//sets default value of Loop again
-    for(int i = 600; 600 >= 0; i--)
+    for(int i = 600; i >= 0; i--)
     {
         delay(1000);
         lcd.setCursor(0,1);
